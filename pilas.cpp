@@ -8,6 +8,13 @@ int pila[100];
 int tope=0;
 int dato=0;
 
+void mostrar(){
+	
+	for(int i=tam; i>=0; i--){
+		cout << pila[i] << endl;
+	}
+}
+
 int pop(){
 	return pila[tope];
 	tope--;
@@ -39,7 +46,7 @@ bool vacia(){
 int main(){
 	
 	int opcion=0;
-	cout << "Ingrese el tamaño de la pila: ";
+	cout << "Ingrese el tamaÃ±o de la pila: ";
 	cin >> tam;
 	
 	pila[tam];
@@ -60,7 +67,7 @@ int main(){
 				cout << "Valor a insertar: ";
 				cin >> dato;
 				
-				if(!llena){
+				if(!llena()){
 					push(dato);
 				}
 				else{
@@ -68,7 +75,7 @@ int main(){
 				}
 				break;
 			case 2:
-				if(!vacia){
+				if(!vacia()){
 					cout << "El elemento de la cima de la pila era: " << pop() << endl;
 				}
 				else{
@@ -84,7 +91,10 @@ int main(){
 				cout << "Elija una opcion valida por favor." << endl;
 				break;
 		}
-	}while(!llena);
+	}while(!llena());
+	
+	cout << "\nMotrar pila: \n";
+	mostrar();
 	
 	getch();
 	return 0;
