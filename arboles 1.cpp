@@ -13,7 +13,7 @@ struct Nodo{
 
 Nodo *arbol = NULL;
 
-//prototipos
+//prototipos de funcion
 void menu();
 Nodo *crearNodo(int, Nodo *);
 void insertarArbol(Nodo *&, int, Nodo *);
@@ -36,6 +36,7 @@ int main(){
 	return 0;
 }
 
+//menu de las opciones
 void menu(){
 	int op=0, dato, contador=0;
 	
@@ -209,6 +210,10 @@ void postorden(Nodo *arbol){
 	}
 }
 
+/*
+	metodos de eliminacion de un dato en el arbol
+*/
+
 //eliminar un nodo del arbol
 void eliminar(Nodo *arbol, int n){
 	if(arbol == NULL){
@@ -270,7 +275,7 @@ void eliminarNodo(Nodo *nodoEliminar){//si tiene dos hijos
 		reemplazar(nodoEliminar, nodoEliminar->sub_izq);
 		destruirNodo(nodoEliminar);
 	}
-	else if(nodoEliminar->sub_der){
+	else if(nodoEliminar->sub_der){//si no tiene hijos y es un nodo hoja
 		reemplazar(nodoEliminar, nodoEliminar->sub_der);
 		destruirNodo(nodoEliminar);
 	}
